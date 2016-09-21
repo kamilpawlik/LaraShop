@@ -10,8 +10,7 @@ return [
     */
 
     'name'           => 'LaraShop',
-    'frontend_theme' => 'simple',
-    'backend_theme'  => 'default',
+    'theme' => 'simple',
 
     /*
     |--------------------------------------------------------------------------

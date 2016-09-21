@@ -2,13 +2,13 @@
 
 function theme_name()
 {
-    return Config::get('app.frontend_theme');
+    return \App\Configuration::valueFor('theme');
 }
 
 function theme_path($name = null)
 {
     $name = $name ? $name : theme_name();
-    return realpath(base_path('resources/themes/frontend/' . $name));
+    return realpath(base_path('resources/themes/' . $name));
 }
 
 function theme_assets_path($name = null)

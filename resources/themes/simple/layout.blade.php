@@ -75,6 +75,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </nav>
                 <!--/.navbar-->
             </div>
+
             <div class="search-box">
                 <div id="sb-search" class="sb-search">
                     <form>
@@ -149,7 +150,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a href="#"><i class="icon3"></i></a>
                     <a href="#"><i class="icon4"></i></a>
                 </div>
-                <p>Copyright &copy; 2015 Swim Wear. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a>
+                <p>Copyright &copy; 2016 LaraShop. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a>
                 </p>
             </div>
             <div class="clearfix"></div>

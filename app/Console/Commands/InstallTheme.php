@@ -68,11 +68,11 @@ class InstallTheme extends Command
          * Activate theme
          */
         $this->info((++$step) . ". Activating theme");
-        $config = Configuration::where(['key' => 'frontend:theme'])->first();
+        $config = Configuration::where(['key' => 'theme'])->first();
 
         if (!$config) {
             Configuration::create([
-                'key'   => 'frontend:theme',
+                'key'   => 'theme',
                 'value' => $themeName,
             ]);
         } else {

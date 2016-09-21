@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Configuration extends Model
 {
+
+    protected $primaryKey = 'key';
+    public $incrementing = false;
+
     protected $fillable = ['key', 'value'];
+
 
     public static function valueFor($key, $default = null)
     {

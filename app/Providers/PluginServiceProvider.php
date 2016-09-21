@@ -20,8 +20,10 @@ class PluginServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $files = File::allFiles(app_path('plugins'));
+        $files = File::allFiles(app_path('Plugins'));
+
         foreach ($files as $file) {
+
             if (basename($file) == 'config.php') {
                 $config = include $file;
 

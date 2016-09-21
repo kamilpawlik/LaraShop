@@ -74,23 +74,5 @@ class InstallPlugin extends Command
 
         }
 
-        /**
-         * Activate plugin
-         */
-        $this->info((++$step) . ". Activating plugin");
-        $config = Configuration::where(['key' => $pluginName . ':active'])->first();
-
-        if (!$config) {
-            Configuration::create([
-                'key'   => $pluginName . ':active',
-                'value' => 1,
-            ]);
-        } else {
-            $config->value = 1;
-            $config->save();
-        }
-        $this->info('Plugin activated');
-
-
     }
 }

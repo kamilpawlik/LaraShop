@@ -16,6 +16,8 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         // Commands\Inspire::class,
         Commands\InstallPlugin::class,
+        Commands\ActivatePlugin::class,
+        Commands\DecativatePlugin::class,
         Commands\InstallTheme::class
     ];
 

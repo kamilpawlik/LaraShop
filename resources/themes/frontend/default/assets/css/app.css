@@ -1,0 +1,52 @@
+
+
+.logo {
+    font-weight: 100;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 1em 0;
+}
+
+/* add .nav-justified, see: https://github.com/twbs/bootstrap/issues/18653 */
+.nav-justified {
+    width: 100%;
+}
+
+.nav-item {
+    float: none;
+}
+
+.nav-link {
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .nav-item {
+        display: table-cell;
+        width: 1%;
+    }
+
+    .nav-link {
+        margin-bottom: 0;
+    }
+}
+
+/* Customize the nav-justified links to be fill the entire space of the .navbar */
+
+.nav-link {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    font-weight: 200;
+    color: #000;
+    text-align: center;
+
+}
+
+.nav-link.active,
+.nav-link:hover,
+.nav-link:focus {
+    border-bottom: 2px solid #000;
+    color: #000;
+}

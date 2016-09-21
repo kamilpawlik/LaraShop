@@ -1,0 +1,1 @@
+{{ $config::valueFor('html_title', config('app.name')) }}

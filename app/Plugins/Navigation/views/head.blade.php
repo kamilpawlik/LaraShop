@@ -1,0 +1,1 @@
+@pluginjs('Navigation', 'js/app.js')

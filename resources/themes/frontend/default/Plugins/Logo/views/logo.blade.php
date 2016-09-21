@@ -1,0 +1,1 @@
+<h1 class="text-lg-center logo">{{ $config::valueFor('html_title', config('app.name')) }}</h1>

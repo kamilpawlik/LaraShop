@@ -17,6 +17,7 @@ class ShopMigrator extends Migrator
         }
 
         $class = Str::studly(implode('_', array_slice(explode('_', $file), $slideDepth)));
+        
         return new $class;
     }
 }

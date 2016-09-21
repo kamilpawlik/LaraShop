@@ -53,9 +53,10 @@ class InstallPlugin extends Command
          * Check for plugin migrations
          */
         if (is_dir(plugin_migrations_path($pluginName))) {
+
             $this->info((++$step) . ". Checking migrations");
             $this->call('migrate', [
-                '--path' => plugin_migrations_path($pluginName)
+                '--path' => plugin_relative_migrations_path($pluginName)
             ]);
         }
 

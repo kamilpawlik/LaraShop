@@ -20,6 +20,8 @@ class FeaturedProductsComposer
      */
     public function compose(View $view)
     {
-        appendContentToViewSection('featured_products', view('FeaturedProducts::featured-products'), $view);
+        appendContentToViewSection('featured_products',
+            view('FeaturedProducts::featured-products', ['items' => FeaturedProduct::getFeaured(8)]
+        ), $view);
     }
 }

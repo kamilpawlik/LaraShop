@@ -2,14 +2,17 @@
 
 namespace App\Plugins\FeaturedProducts;
 
+use App\Extensions\ViewPartsManager;
 use Illuminate\View\View;
 
 class FeaturedProductsComposer
 {
 
-    public function __construct()
+    private $viewPartsManager;
+
+    public function __construct(ViewPartsManager $viewPartsManager)
     {
-        //
+        $this->viewPartsManager = $viewPartsManager;
     }
 
     /**
@@ -20,8 +23,10 @@ class FeaturedProductsComposer
      */
     public function compose(View $view)
     {
-        appendContentToViewSection('featured_products',
-            view('FeaturedProducts::featured-products', ['items' => FeaturedProduct::getFeaured(8)]
-        ), $view);
+        $this->viewPartsManager->addContent(view('FeaturedProducts::featured-products', ['items' => FeaturedProduct::getFeaured(8)]))
+            ->toSection('featured_products')
+            ->withPriority(0)
+            ->execute($view);
+
     }
 }

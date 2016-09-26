@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Extensions\ViewParts;
 use File;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
@@ -58,10 +59,7 @@ class PluginServiceProvider extends ServiceProvider
             );
         }
     }
-
-    /*
-     * @TODO: Refactor this part of code to use plugin helper to resolve paths
-     */
+    
     public function registerViewPaths(array $paths, $pluginBasePath, $pluginName)
     {
         foreach ($paths as $path) {
@@ -87,7 +85,9 @@ class PluginServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->singleton(\App\Extensions\ViewParts::class, function ($app) {
+            return new ViewParts();
+        });
     }
 
 }

@@ -3,13 +3,15 @@
 namespace App\Plugins\Logo;
 
 use Illuminate\View\View;
+use App\Extensions\ViewPartsManager;
 
 class LogoComposer
 {
+    private $viewPartsManager;
 
-    public function __construct()
+    public function __construct(ViewPartsManager $viewPartsManager)
     {
-        //
+        $this->viewPartsManager = $viewPartsManager;
     }
 
     /**
@@ -20,6 +22,9 @@ class LogoComposer
      */
     public function compose(View $view)
     {
-        appendContentToViewSection('logo', view('Logo::logo'), $view);
+        $this->viewPartsManager->addContent(view('Logo::logo'))
+                                ->toSection('logo')
+                                ->withPriority(0)
+                                ->execute($view);
     }
 }

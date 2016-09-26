@@ -178,6 +178,7 @@ return [
         App\Providers\ThemeServiceProvider::class,
         App\Providers\PluginServiceProvider::class,
         App\Providers\PluginMigrationServiceProvider::class,
+        App\Providers\ViewPartsManagerProvider::class,
 
     ],
 

@@ -2,15 +2,19 @@
 
 namespace App\Plugins\Carousel;
 
+use App\Extensions\ViewPartsManager;
 use Illuminate\View\View;
 
 class CarouselComposer
 {
 
-    public function __construct()
+    private $viewPartsManager;
+
+    public function __construct(ViewPartsManager $viewPartsManager)
     {
-        //
+        $this->viewPartsManager = $viewPartsManager;
     }
+
 
     /**
      * Bind data to the view.
@@ -20,6 +24,9 @@ class CarouselComposer
      */
     public function compose(View $view)
     {
-        appendContentToViewSection('carousel', view('Carousel::carousel'), $view);
+        $this->viewPartsManager->addContent(view('Carousel::carousel'))
+            ->toSection('carousel')
+            ->withPriority(0)
+            ->execute($view);
     }
 }

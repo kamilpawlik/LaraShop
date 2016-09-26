@@ -1,19 +1,19 @@
 <?php
 namespace App\Plugins\Navigation;
 
-use App\Providers\PluginMigrationServiceProvider;
-use Illuminate\Support\Facades\App;
+use App\Extensions\ViewPartsManager;
 use Illuminate\View\View;
-
-use Illuminate\Support\Facades\Blade;
 
 
 class NavigationComposer
 {
 
 
-    public function __construct()
+    private $viewPartsManager;
+
+    public function __construct(ViewPartsManager $viewPartsManager)
     {
+        $this->viewPartsManager = $viewPartsManager;
     }
     
     /**
@@ -24,9 +24,10 @@ class NavigationComposer
      */
     public function compose(View $view)
     {
-        appendContentToViewSection( 'navigation', view('Navigation::menu', ['items' => Menu::all()]), $view );
-        appendContentToViewSection( 'html_head',  view('Navigation::head'), $view);
-
+        $this->viewPartsManager->addContent(view('Navigation::menu', ['items' => Menu::all()]))
+            ->toSection('navigation')
+            ->withPriority(0)
+            ->execute($view);
     }
 
 }
